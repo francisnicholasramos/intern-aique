@@ -1,0 +1,41 @@
+.test {
+    background-color: red;
+    align-items: flex-end;
+    background-color: #24ab48;
+}
+
+input {
+    border: 1px solid #d7d7d7;
+    color: #4e4e4e;
+}
+
+input:focus {
+    outline-color: #73a8e2;
+}
+
+li {
+    border-bottom: 1px solid #e1e1e1;
+    padding: 3px 0 3px 0;
+    color: #4e4e4e;
+}
+
+li:nth-last-child(1) {
+    border-bottom: hidden;
+}
+
+.list {
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ececec;
+    border-radius: 4px;
+}
