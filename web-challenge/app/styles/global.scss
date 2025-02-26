@@ -1,0 +1,94 @@
+.blur {
+    filter: blur(50px);
+    position: absolute;
+    background: radial-gradient(50% 50% at 50% 50%, #2D68F8 0%, #E72DF8 100%);
+    width: 176px;
+    height: 176px;
+}
+
+.label {
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0 0 5px 0;
+}
+
+.input {
+    background-color: transparent;
+    outline: none;
+    border-bottom: 1px solid black !important;
+    margin: 0 0 5px 0;
+}
+
+.scrollbar {
+    overflow: auto;
+}
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  
+  /* Styling the scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #e1e1e1;  /* Default color */
+    border-radius: 10px;      /* Rounded corners */
+    border: 3px solid #fff;   /* Optional border to create space around the thumb */
+  }
+  
+
+@media(max-width: 600px) {
+
+    // navbar
+    .navbar {
+        display: flex;
+        justify-content: center;
+    }
+
+    // body
+    .body-container {
+        padding: 0;
+
+        .hero {
+            padding: 0 24px 0 24px;
+
+            .hero-build {
+                font-size: 29px;
+            }
+
+            .content {
+                font-size: 1rem;
+                padding: 0;
+            }
+        }
+
+        .card-container {
+            width: 100%;
+            padding: 24px 12px 24px 12px;
+
+            .cards,
+            .card-image {
+                width: 100%;
+            }
+        }
+
+    }
+
+    // footer
+    .footer {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 12px 0 12px;
+        margin-bottom: 30px;
+
+        .get-in-touch {
+            font-size: 20px;
+        }
+
+        .form {
+            height: auto;
+            margin: auto;
+
+            width: 100%;
+        }
+    }
+}
