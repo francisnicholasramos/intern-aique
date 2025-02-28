@@ -1,0 +1,66 @@
+'use client';
+import { useState } from 'react';
+// import './globals.css';
+
+export default function Page() {
+  const [todos, setTodos] = useState<{ text: string; completed: boolean }[]>([]);
+  const [newTodo, setNewTodo] = useState('');
+  const [editingIndex, setEditingIndex] = useState<number | null>(null); 
+  const [editText, setEditText] = useState(''); 
+
+  const Add = () => {
+    if (newTodo.trim()) {
+      setTodos([...todos, { text: newTodo, completed: false }]);
+      setNewTodo('');
+    }
+  };
+
+  const Del = (index: number) => {
+    setTodos(todos.filter((item, i) => i !== index));
+  };
+
+  const Edit = (index: number) => {
+    setEditingIndex(index); 
+    setEditText(todos[index].text); 
+  };
+
+  const SaveEdit = () => {
+    if (editingIndex !== null) {
+      const updatedTodos = [...todos];
+      updatedTodos[editingIndex].text = editText; 
+      setTodos(updatedTodos);
+      setEditingIndex(null); 
+      setEditText(''); 
+    }
+  };
+  console.log(todos)
+  return (
+    <div className='container'>
+      <h1>Todo</h1>
+
+      <div className='searchBar'>
+        <input type="text" value={newTodo} onChange={(e) => setNewTodo(e.target.value)} />
+        <button onClick={Add} className='add'>Add</button>
+      </div>
+
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>
+            {editingIndex === index ? (
+              <div>
+                <input type="text" value={editText} onChange={(e) => setEditText(e.target.value)}/>
+              </div>
+              
+            ) : (<span>{todo.text}</span>)}
+
+            <div className='btn'>
+              <button onClick={SaveEdit} className="save">Save</button>
+              <button onClick={() => Edit(index)} className='edit'>Edit</button>
+              <button onClick={() => Del(index)} className="delete">Delete</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
